@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Responsive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    
+    .background-img{
+        position: fixed;
+		background-image: url("https://www.shutterstock.com/image-photo/corporate-data-management-system-dms-260nw-414102526.jpg");
+		height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-position: center;
+        background-size: cover;
+        filter: blur(2px);
+        z-index:  -1;
+	}
+
+    body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: rgb(53, 53, 53);
+        background-color: black;
+        align-items: center;
+        
+    }
+
+    .container {
+        max-width: 50rem;
+        margin: 2rem auto;
+        padding: 0px 2rem;
+        border: none;
+    }
+
+    .main-heading {
+        font-size: 4rem;
+        margin: 2rem 0rem 2rem;
+        color: rgb(8, 33, 84);
+        text-align: center;
+    }
+
+    .form-class {
+        margin: 2rem 0px;
+    }
+
+    .form-control {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .heading-field {
+        margin: 1rem 0px 0.6rem;
+    }
+
+    .field-head {
+        font-size: 2rem;
+    }
+
+    .input-div {
+        margin-bottom: 2rem;
+    }
+
+    .btn-container {
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        /* For mobile view, buttons stack vertically */
+        margin-top: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+        .btn-container {
+            flex-direction: row;
+            /* For desktop view, buttons are displayed side by side */
+        }
+
+        .btn {
+            margin: 0 10px;
+            /* Adjust margin between buttons */
+        }
+    }
+
+    .form-control-input {
+        font-size: 1.5rem;
+        padding: 0.4rem 0px;
+        text-indent: 0.5rem;
+        border: none;
+        outline: 1px solid #999;
+        border-radius: 7px;
+        width: 100%;
+        color: #999;
+    }
+
+    option {
+        color: none;
+    }
+
+    .radio {
+        display: flex;
+        gap: 0.9rem;
+    }
+
+    @media screen and (orientation: portrait) {
+        .radio {
+            display: inline;
+        }
+    }
+
+    .form-control-input:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0.25rem rgb(13, 110, 253/25%);
+    }
+
+    .btn {
+        margin: 0 20px;
+        margin-bottom: 2rem;
+    }
+
+    .btn input[type="submit"],
+    .btn input[type="reset"] {
+        padding: 10px 20px;
+        border: none;
+        width: 9rem;
+        border-radius: 6px;
+        cursor: pointer;
+        background-color: #315d6d;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn input[type="submit"]:hover,
+    .btn input[type="reset"]:hover {
+        background-color: #1f2e3d;
+    }
+
+    .btn a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #355f71;
+    }
+
+    .btn {
+        transition: .5s;
+    }
+
+    .btn:hover {
+        transform: scale(1.1);
+    }
+
+    a:hover {
+        background-color: #1f2e3d;
+    }
+    
+    .modal{
+        position: fixed;
+        display: none; /* Initially hidden */
+        background-color: white;
+        width: 30%;
+        border: 1px solid rgb(23, 206, 23);
+        border-radius: 5px;
+        top: 50%; /* Align from the top by 50% */
+        left: 50%; /* Align from the left by 50% */
+        transform: translate(-50%, -50%); /* Move the modal back by half of its width and height */
+        z-index: 1; /* Ensure it appears on top of other elements */
+        padding: 20px; /* Add padding for content inside the modal */
+        text-align: center;
+      }
+
+      img{
+        display: block;
+        margin: auto;
+        width: 50%; /* Adjust width as needed */
+        height: auto; /* Maintain aspect ratio */
+      }
+
+      .close{
+        padding-right: 3%;
+        float: right;
+        font-size: 150%;
+      }
+
+      .close:hover{
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      #h1{
+        align-items: center;
+        margin-top: -6%;
+        color: rgb(71, 130, 83);
+      }
+    </style>
+    <script>
+    function submitForm() {
+        var fname = document.getElementById('firstname').value.trim();
+        var lname = document.getElementById('lastname').value.trim();
+        var dob = document.getElementsByName('dob')[0].value.trim();
+        var salary = document.getElementsByName('salary')[0].value.trim();
+        var address = document.getElementsByName('address')[0].value.trim();
+        var phone = document.getElementsByName('phone')[0].value.trim();
+        var email = document.getElementsByName('email')[0].value.trim();
+        var education = document.getElementsByName('education')[0].value.trim();
+        var designation = document.getElementsByName('designation')[0].value.trim();
+        var aadharnumber = document.getElementsByName('aadharnumber')[0].value.trim();
+        var gender = document.querySelector('input[name="gender"]:checked');
+
+        if (fname === "" || lname === "" || dob === "" || salary === "" || address === "" || phone === "" || email === "" || education === "" || designation === "" || aadharnumber === "" || !gender) {
+            alert("Please fill out all fields");
+            return false;
+        }
+
+        if (fname.length > 50) {
+            alert("FirstName must be less than or equal to 50 characters");
+            return false;
+        }
+
+        if (lname.length > 50) {
+            alert("LastName must be less than or equal to 50 characters");
+            return false;
+        }
+        
+        if (salary.length > 8) {
+            alert("Salary must be less that equal to 8 digits");
+            return false;
+        }
+        
+        if (address.length > 100) {
+            alert("Address must be less than or equal to 100 characters");
+            return false;
+        }
+
+        if (phone.length !== 10) {
+            alert("Phone number must be exactly 10 digits");
+            return false;
+        }
+        
+        if (designation.length > 50) {
+            alert("Designation must be less than or equal to 50 characters");
+            return false;
+        }
+        
+        if (aadharnumber.length !== 12) {
+            alert("Aadhar number must be exactly 12 digits");
+            return false;
+        }
+
+        var modal = document.getElementById('modal');
+        modal.style.display = "block";
+        return false; // Prevent default form submission
+    }
+
+    function closemodal() {
+        var modal = document.getElementById('modal');
+        modal.style.display = "none";
+        document.forms["myform"].submit();
+    }
+</script>
+
+
+</head>
+
+<body class="container" onload="bodyload()">
+    <div class="background-img"></div>
+    <h1 class="main-heading">Add Employees Details</h1>
+    <div class="mainbody">
+        <form method="post" class="form-class" name="myform" action="add" onsubmit="return submitForm()">
+
+            <div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Firstname:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="text" name="fname" class="form-control-input" id="firstname" required >
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Lastname:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="text" name="lname" class="form-control-input" id="lastname" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">DOB:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="date" class="form-control-input" name="dob" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Salary:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="number" class="form-control-input" name="salary" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Address:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="text" class="form-control-input" name="address" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Phone:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="number" class="form-control-input" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Email:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="email" class="form-control-input" name="email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Education:</div>
+                    </div>
+                    <div class="input-div">
+                        <select class="form-control-input" name="education" required>
+                            <option>Bachelors of Engineering(BE)</option>
+                            <option>Bachelor of Computer Science(BSC)</option>
+                            <option>Bachelor of Business Administration.(BBA)</option>
+                            <option>Deploma in Pharmacy(D-Pharm)</option>
+                            <option>Bachelors in Pharmacy(B-Pharm)</option>
+                            <option>Masters in Pharmacy(M-Pharm)</option>
+                            <option>Master of Science(Msc)</option>
+                            <option>Master of Business Administration (MBA)</option>
+                            <option>Master of Arts (MA)</option>
+                            <option>Bachelor of Laws (LLB)</option>
+                            <option>Master of Public Health (MPH)</option>
+                            <option>Bachelor of Science (BS)</option>
+                            <option>Associate of Arts (AA)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Designation:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="text" class="form-control-input" name="designation" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Aadhar number:</div>
+                    </div>
+                    <div class="field-input">
+                        <div class="input-div">
+                            <input type="number" class="form-control-input" name="aadharnumber" required>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="main-user-info">
+                    <div class="heading-field">
+                        <div class="field-head">Employee Id: <p id="randomNumber" style="color: red;"></p></div>
+                    </div>
+                </div>
+                <br>
+                <div class="div">
+                    <div class="heading-field">
+                        <h3 class="field-head">Personal Details: </h3>
+                    </div>
+                    <div class="input-divs">
+                        <div class="radio" required>
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label for="male">Male</label><br>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label><br>
+                            <input type="radio" id="other" name="gender" value="other">
+                            <label for="other">Other</label><br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <div class="btn">
+                        <input type="submit" value="Add Details" onclick="submitForm()">
+                    </div>
+                    <div class="btn">
+                        <input type="reset" value="Reset">
+                    </div>
+                    <div class="btn">
+                        <a href="Welcome123.html">Back</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div class="modal" id="modal">
+      <div class="modal-content" id="modal-content">
+        <div class="close" id="close" onclick="closemodal()">&times;</div>
+        <img src="https://thumbs.dreamstime.com/b/correct-symbol-green-isolated-white-background-79321221.jpg">
+        <h1 id="h1">Employee details added successfully</h1>
+      </div>
+    </div>
+</body>
+
+</html>

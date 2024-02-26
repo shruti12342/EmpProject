@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome page</title>
+	</head>
+	<style>
+		body{
+			background-color: rgb(96, 107, 227);
+			text-align: center;
+			color: rgb(233, 234, 238);
+			text-shadow:   tomato;
+			font-size: larger;
+		}
+
+		.background-img{
+			background-image: url("https://flowdog.io/wp-content/uploads/2021/11/System-DMS.png");
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			left: 0;
+			top: 0;
+			margin: 0;
+			border: none;
+			border-radius: 1px;
+			background-position: center;
+			background-size: cover;
+			filter: blur(1px);
+	
+		}
+
+		.container{
+			margin-left: 28%;
+			margin-top: 5%;
+			padding-left: 0%;
+			position: fixed;
+		}
+
+		.btn{
+			background-color: rgba(208, 190, 190, 0.5);
+			color: white;
+			border: none;
+			display: flex;
+			flex-direction: column;
+			margin-top:20%;
+			width: 80%;
+			font-size: 150%;
+			padding: 2% 1%;
+			align-items: center;
+			text-align: center;
+			margin-left: 10%;
+			border-radius: 10px;
+	
+		}
+
+		.btn:hover{
+			cursor: pointer;
+			transform: scale(1.1);
+			transition: all 0.4s ease-in-out;
+			background-color: rgb(50, 50, 65);
+			color: #fcf3f3;
+		}
+
+		.btn addemp{
+			width: 200px;
+		}
+		
+	</style>
+	
+	<body>
+		<div class="container">
+			<div class="background-img"></div>
+
+				<h1><u>Welcome to our website</u></h1>
+				<!-- Styled link as a button -->
+				<a href="AddEmp.html" class="btn">Add New Employee</a>
+				<form action="view" method="post">
+					<a href="ViewEmp.jsp" class="btn">View Employees List</a>
+				</form>
+			</div>
+
+	</body>
+</html>

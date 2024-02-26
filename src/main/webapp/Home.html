@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Employee Management System</title>
+  <style>
+
+    *{
+      padding: 0%;
+      margin: 0%;
+      box-sizing: border-box;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .background-img{
+      position:fixed;
+      background-image: url("https://flowdog.io/wp-content/uploads/2021/11/System-DMS.png");
+      width: 100%;
+      height: 100%;
+      background-position: right;
+      background-size: cover;
+      z-index: -1;
+      filter: blur(1px);
+      top: 0;
+      left: 0;
+    }
+
+    .content{
+      background-color: rgba(157, 53, 126, 0.5);
+      border: none;
+      border-radius: 5px;
+      width: 60%;
+      height: 0vh;
+      margin-top: 10%;
+      margin-left: 20%;
+      align-items: center;
+      text-align: center;
+      font-size: 150%;
+      justify-content:space-between;
+      color: white;
+      position: fixed;
+      
+    }
+
+    #adminbtn{
+      padding: 10px 50px;
+      margin-right: 20px; 
+    }
+
+    #empbtn{
+      padding: 10px 32px;
+      margin-left: 35px;
+     
+    }
+
+    .btn{
+      background-color: rgba(83, 184, 184, 0.5);
+      color: rgb(16, 15, 15);
+      text-decoration: none;
+      border: none;
+      border-radius:5px;
+      transition: transform 0.5s ease-in-out, color 0.5s ease-in-out; 
+    }
+
+    .btn:hover{
+      color: white;
+      transform: scale(1.1);
+      background-color: rgb(86, 169, 169);
+    }
+
+  </style>
+  <script>
+
+  </script>
+  </head>
+  <body class="container-fluid" onload="bodyload()">
+    <div class="background-img"></div>
+    <div class="content">
+      <h2>Welcome to Employee Management System</h2><br>
+      <p>Track employees records here...</p><br><br>
+        <a href="login.html" class="btn" id="adminbtn">Admin</a>   
+        <a href="ViewEmpForemp.jsp" class="btn" id="empbtn">Employee</a>
+    </div>
+  </body>
+</html>
