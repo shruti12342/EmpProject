@@ -26,6 +26,7 @@ public class Login extends HttpServlet {
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "tiger");
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println();
         }
     }
 
